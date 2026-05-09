@@ -9,6 +9,9 @@ import lombok.ToString;
 
 import java.time.LocalDate;
 
+/**
+ * Stores event details introduced in LAB03 for event registration flows.
+ */
 @Entity
 @Table(name = "event")
 @Getter

@@ -10,6 +10,9 @@ import pl.wsb.fitnesstracker.user.api.User;
 
 import java.time.LocalDate;
 
+/**
+ * Join entity that persists user registrations for events (LAB03).
+ */
 @Entity
 @Table(name = "user_event")
 @Getter
