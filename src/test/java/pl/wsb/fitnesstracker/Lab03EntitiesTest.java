@@ -58,6 +58,13 @@ class Lab03EntitiesTest {
     }
 
     @Test
+    void shouldHaveAchievementTable() throws Exception {
+        try (Connection conn = dataSource.getConnection()) {
+            assertThat(tableExists(conn, "achievement")).isTrue();
+        }
+    }
+
+    @Test
     void eventTableHasPrimaryKey() throws Exception {
         try (Connection conn = dataSource.getConnection()) {
             Set<String> cols = tableColumns(conn, "event");
@@ -78,6 +85,14 @@ class Lab03EntitiesTest {
         try (Connection conn = dataSource.getConnection()) {
             Set<String> cols = tableColumns(conn, "workout_session");
             assertThat(cols).contains("id", "training_id");
+        }
+    }
+
+    @Test
+    void achievementTableHasUserForeignKey() throws Exception {
+        try (Connection conn = dataSource.getConnection()) {
+            Set<String> cols = tableColumns(conn, "achievement");
+            assertThat(cols).contains("id", "user_id");
         }
     }
 
