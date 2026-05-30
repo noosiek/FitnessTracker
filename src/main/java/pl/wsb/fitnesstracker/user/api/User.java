@@ -44,4 +44,23 @@ public class User {
         this.email = email;
     }
 
+    /**
+     * Updates user profile data.
+     *
+     * @param firstName updated first name
+     * @param lastName  updated last name
+     * @param birthdate updated birth date
+     * @param email     updated email address
+     */
+    public void update(
+            final String firstName,
+            final String lastName,
+            final LocalDate birthdate,
+            final String email) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.birthdate = birthdate;
+        this.email = email;
+    }
+
 }

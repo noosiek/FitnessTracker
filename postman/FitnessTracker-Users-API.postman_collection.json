@@ -1,0 +1,111 @@
+{
+  "info": {
+    "name": "FitnessTracker Users API",
+    "description": "Postman collection for LAB04 User CRUD API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080"
+    },
+    {
+      "key": "userId",
+      "value": "1"
+    }
+  ],
+  "item": [
+    {
+      "name": "Get all users",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/v1/users"
+      }
+    },
+    {
+      "name": "Get simple users",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/v1/users/simple"
+      }
+    },
+    {
+      "name": "Get user by id",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/v1/users/{{userId}}"
+      }
+    },
+    {
+      "name": "Search users by email",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/v1/users/email?email=domain.com",
+          "host": ["{{baseUrl}}"],
+          "path": ["v1", "users", "email"],
+          "query": [
+            {
+              "key": "email",
+              "value": "domain.com"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get users older than date",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/v1/users/older/2024-08-10"
+      }
+    },
+    {
+      "name": "Create user",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"firstName\": \"Mike\",\n  \"lastName\": \"Scott\",\n  \"birthdate\": \"1999-09-29\",\n  \"email\": \"mike.scott@domain.com\"\n}"
+        },
+        "url": "{{baseUrl}}/v1/users"
+      }
+    },
+    {
+      "name": "Update user",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"firstName\": \"Mike\",\n  \"lastName\": \"Scott\",\n  \"birthdate\": \"1999-09-29\",\n  \"email\": \"mike.scott@domain.com\"\n}"
+        },
+        "url": "{{baseUrl}}/v1/users/{{userId}}"
+      }
+    },
+    {
+      "name": "Delete user",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": "{{baseUrl}}/v1/users/{{userId}}"
+      }
+    }
+  ]
+}
